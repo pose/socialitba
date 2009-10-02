@@ -6,9 +6,6 @@
 	include 'twitter/EpiTwitter.php';
 	include 'secret.php';
 	
-	$appapikey = '95f7a9a8eedd1b80064f52b42a6c120e';
-	$appsecret = '105b348d3ca252f04d137e268422df22';
-
 	/* Finishing twitter oauth process */	
 
 	$twitterObj = new EpiTwitter($consumer_key, $consumer_secret);
@@ -24,16 +21,20 @@
 	$facebook = new Facebook($appapikey, $appsecret);
 	$user_id = $facebook->require_login();
 	
-	$mysql_conn = mysql_connect('localhost', 'fbapp', 'lalala');
+	$db = mysql_connect('localhost','fbapp','lalala') or die("Database error");
 	
-	if (!$mysql_conn) {
-	    die('Could not connect: ' . mysql_error());
-	}
+	mysql_select_db('test', $db);
 	
-	$query = sprintf("INSERT INTO user (uid, oauth_token, oauth_token_secret) VALUES (%d,'%s','%s')",
+	
+	$query = sprintf("INSERT INTO test.user (fb_uid, oauth_token, oauth_token_secret) VALUES (%d,'%s','%s')",
 	    mysql_real_escape_string($user_id),
 	    mysql_real_escape_string($oauth_token),
 	    mysql_real_escape_string($oauth_token_secret));
-	
-	mysql_query($query,$mysql_conn);
+	   
+	    if ( ! mysql_query($query) ){
+	    	$err_msg = sprintf( 'error al insertar. %s', mysql_error());
+	    	die($err_msg);
+	    }
+	    
+	header( 'Location: http://apps.facebook.com/jcatalanapp' ) ;
 ?>
