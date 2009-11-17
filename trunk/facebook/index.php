@@ -33,16 +33,22 @@ function createNewUser( $user, $consumer_key, $consumer_secret ){
 }
 
 function buildCanvas( $user ){
-	$string = 	'<fb:tabs>  ' .
+	$string = 	"<link rel='stylesheet' type='text/css' href='http://190.16.39.171/style.css' />" .
+				"<script type='text/javascript' src='./validations.js'> </script>" .				
+				'<fb:tabs>  ' .
 					'<fb:tab-item href="http://apps.facebook.com/jcatalanapp/user.php" selected=True title="User" />  ' .
 					'<fb:tab-item href="http://apps.facebook.com/jcatalanapp/friends.php" title="Friends" align="right"/>  ' .
 					'<fb:tab-item href="http://apps.facebook.com/jcatalanapp/dmessages.php" title="Direct Messages" align="right"/>'.
 				'</fb:tabs>' .
-				'Ingresa tu nuevo estado: </br>' .
-				'<form method="get" action="postStatus.php">
-  					<textarea name="input_field" class="field"></textarea></br>
-  					<input type="submit"/>
- 				</form>';
+				'</br></br>Ingrese su estado nuevo: </br></br>' .
+				'<div>' .
+					'<form method="get" action="postStatus.php">
+	  					<textarea id="input_field" class="field"></textarea></br>' .
+	  					'<font id="Digitado" color="red">0</font> Caracteres digitados / Restan ' .
+	  					'<font id="Restante" color="red">100</font>'.
+	  					'<input type="submit"/>
+	 				</form>' .
+ 				'</div>';
 	echo $string; 
 }
 

@@ -10,8 +10,7 @@
     font-weight: bold;
 }
 
- <style type="text/css">
- input.search {
+input.search {
   background:white url(facebook.com/images/magglass.png) no-repeat scroll 3px 4px;
   padding-left:17px;
  }
@@ -40,4 +39,3 @@
    border-left-color:#ddd;
    border-top-color:#ddd
  }
- </style>
