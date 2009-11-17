@@ -6,10 +6,8 @@
 	include 'twitter/EpiTwitter.php';
 	include 'secret.php';
 	
-	
 	$facebook = new Facebook($appapikey, $appsecret);
 	$user_id = $facebook->require_login();
-	
 	$db = mysql_connect('localhost','fbapp','lalala') or die("Database error");
 	
 	mysql_select_db('test', $db);
@@ -30,7 +28,7 @@
 	
 	$twitterInfo= $twitterObj->get_statusesUser_timeline();
 	
-	$html = "<link rel='stylesheet' type='text/css' href='http://190.16.38.12/style.css' />" .
+	$html = "<link rel='stylesheet' type='text/css' href='http://190.16.39.171/style.css' />" .
 			"<fb:header icon='false'>My Updates</fb:header>";
 			
 	foreach ( $twitterInfo->response as $st ){

@@ -34,10 +34,15 @@ function createNewUser( $user, $consumer_key, $consumer_secret ){
 
 function buildCanvas( $user ){
 	$string = 	'<fb:tabs>  ' .
-					'<fb:tab-item href="http://apps.facebook.com/jcatalanapp/user.php" title="User" />  ' .
+					'<fb:tab-item href="http://apps.facebook.com/jcatalanapp/user.php" selected=True title="User" />  ' .
 					'<fb:tab-item href="http://apps.facebook.com/jcatalanapp/friends.php" title="Friends" align="right"/>  ' .
 					'<fb:tab-item href="http://apps.facebook.com/jcatalanapp/dmessages.php" title="Direct Messages" align="right"/>'.
-				'</fb:tabs>';
+				'</fb:tabs>' .
+				'Ingresa tu nuevo estado: </br>' .
+				'<form method="get" action="postStatus.php">
+  					<textarea name="input_field" class="field"></textarea></br>
+  					<input type="submit"/>
+ 				</form>';
 	echo $string; 
 }
 
