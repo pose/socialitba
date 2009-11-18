@@ -32,7 +32,7 @@
 		private function __construct(){		
 			
 			$this->facebook = new Facebook(AppSecrets::appapikey, AppSecrets::appsecret);
-			
+		
 			$this->user_id = $this->facebook->require_login();
 			
 			$this->db = mysql_connect(AppSecrets::mysql_host, AppSecrets::mysql_user, 
