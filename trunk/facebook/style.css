@@ -9,21 +9,41 @@
     font-size: 13px;
     font-weight: bold;
 }
-
+img{
+	display: block;
+    margin-left: auto;
+    margin-right: auto
+	}
 input.search {
   background:white url(facebook.com/images/magglass.png) no-repeat scroll 3px 4px;
   padding-left:17px;
  }
+p.subtitle{
+	font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+  	font-size:15px;
+  	text-align: center
+	}
+input.submitButton{
+  	display: block;
+    margin-left: auto;
+    margin-right: auto
+ }
  input, textarea, select {
   border:1px solid #BDC7D8;
   font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
-  font-size:11px;
+  font-size:15px;
   padding:3px;
  }
  input:focus, textarea:focus, select:focus {border-color:#687FB0}
  .field {border:1px solid #bdc7d8; padding:2px}
  .field:focus {border-color:#687FB0}
- textarea.field {width:98.5%;height:100px}
+ textarea.field {
+ 	width:90%;
+ 	height:50px;
+ 	display: block;
+    margin-left: auto;
+    margin-right: auto
+    }
  button {
   padding:1px 3px 1px 4px; 
   font-size:1em; cursor:pointer; 
