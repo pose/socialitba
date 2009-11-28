@@ -101,14 +101,18 @@ class CataAuthTwitUser(CataTwitUser):
         self.user = user
         self.password = password
         
-    def updateStatus( self, status ):
-    
-        params = urlencode({'status':status})
+    def updateStatus( self, status, lat, long ):        
+
+        params = urlencode({'status':status, 'lat':lat, 'long':long})
         
-        response = self.__sendPostToResource( params, SEND_DIRECT_MS_RESOURCE, 'json' )
+        response = self.__sendPostToResource( params, STATUS_UPDATE_RESOURCE, 'json' )
 
         return 
     
+    def getLocation( self ):
+
+        return self.showStatus( self.user )[GEO_FIELD]
+
     def sendDirectMessage( self, toUser, msg ):
 
         params = urlencode({'user':toUser, 'text':msg})
@@ -150,7 +154,7 @@ class CataAuthTwitUser(CataTwitUser):
             print( 'You are not friend of this Protected Twitter User.')
             return
         
-        return jsonDec.decode(str)[STATUS_FIELD][TEXT_FIELD]
+        return ret#jsonDec.decode(str)[STATUS_FIELD][TEXT_FIELD]
 
     def __sendPostToResource( self, params, resource, responseFormat ):
 
