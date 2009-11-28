@@ -12,6 +12,8 @@ TEXT_FIELD = 'text'
 
 PROTECTED_FIELD = 'protected'
 
+GEO_FIELD = 'geo'
+
 ### URL's Constants ###
 
 FRIENDS_URL = 'http://twitter.com/friends/ids.json'
