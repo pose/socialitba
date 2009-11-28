@@ -1,16 +1,21 @@
-<link rel='stylesheet' type='text/css' href='http://190.16.39.171/style.css?v2.1' />
-<img src="http://190.16.39.171/images/cataTwitterLogo.png"/>
+<script type="text/javascript" src="http://catadesk.no-ip.org/validations.js?v=0.8"></script>.
+<link rel='stylesheet' type='text/css' href='http://catadesk.no-ip.org/style/style.css?v2.6' />
+<img class='logo' src="http://catadesk.no-ip.org/images/cataTwitterLogo.png"/>
 <fb:tabs>
 	<fb:tab-item href="http://apps.facebook.com/jcatalanapp/user.php" selected=True title="User" />
 	<fb:tab-item href="http://apps.facebook.com/jcatalanapp/friends.php" title="Friends" align="right"/> 
 	<fb:tab-item href="http://apps.facebook.com/jcatalanapp/dmessages.php" title="Direct Messages" align="right"/>
 	<fb:tab-item href="http://apps.facebook.com/jcatalanapp/templates/invite.html" title="Invite Friends" align="left"/>
 </fb:tabs>
-</br><img src="http://190.16.39.171/images/ctlogo.png"/>
-</br><p class="subtitle">Ingrese su estado nuevo</p> </br></br>
+<fb:if-section-not-added section="profile">
+<div class='profile'><fb:add-section-button section="profile" /></div>
+</fb:if-section-not-added>
+</br><img class='logo' src="http://catadesk.no-ip.org/images/ctlogo.png"/>
+</br><p class="subtitle">Write your new status</p> </br></br>
 <div>
-	<form method="get" action="postStatus.php">
-				<textarea name="input_field" class="field"></textarea></br>
-				<input class="submitButton" type="submit"/>
+	<form method="get" action="postStatus.php" onsubmit="return validate(this)">
+				<textarea name='status_field' id="input_field" class="field"></textarea></br>
+				<input id='twitBtn' class="submitButton"value='Twit!' type="submit"/>
 	</form>
+				<div id='errorDiv' style="display: none;">Too many words to twit. Up to 140 characters allowed.</div>
 </div>

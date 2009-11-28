@@ -9,10 +9,41 @@
     font-size: 13px;
     font-weight: bold;
 }
-img{
+img.logo{
 	display: block;
     margin-left: auto;
     margin-right: auto
+	}
+	
+.profile{
+ 	position: absolute;
+   	left: 10;
+   	width: 50%;
+   	text-align: right; /* depends on element width */
+}
+img.profilePic{
+    margin-right: auto
+	}
+
+div.twittBody {
+    float: left;
+    font-size: 12px;
+    margin-left: 10px;
+	padding-left: 15px;
+    width: 272px;
+	height: 102px;
+	overflow-y: auto;
+	background: url(http://catadesk.no-ip.org/images/bubble.png);
+}
+.twitText{
+	margin: 1px 0px 1px 0px;
+	height: 65px;
+	clear: both;
+	width: 250px;
+}
+.twit{
+	position:absolute; 
+	top:50%
 	}
 input.search {
   background:white url(facebook.com/images/magglass.png) no-repeat scroll 3px 4px;
