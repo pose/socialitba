@@ -4,8 +4,8 @@
 		
 		/*Keys for twitter.*/
 		
-		const consumer_key = 'N57iCnEqUfPewcUGipJKGg';
-		const consumer_secret = 'Zn6huTSzi5XRL9CNRzEWD8zqvuZuT90ZRsZ4kEORqwA';
+		const consumer_key = 'ebgP0wsjfomGDdXT3KaAA';
+		const consumer_secret = 'yVCMaglgYl6qjw2wt18hhHA68kpkuz6m2CpW0hzw';
 		
 		/* Keys for facebook */
 		

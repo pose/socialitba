@@ -9,31 +9,36 @@
 	
 	class AppOwner{	
 	
-		private $facebook;
-		private $user_id;
+		public $facebook;
+		public $user_id;
 		private $db;
 		private $result;
 		private $oauth_token;
 		private $oauth_token_secret;
 		private $twitterObj;
 		private $twitterInfo;
+		private $is_profile;
 		
 		private static $instance;
+		//private static $is_tab_profile;
 
-
-		public static function getInstance(){
+		public static function getInstance($is_profile){
 			
 			if (  !self::$instance instanceof self){
-				self::$instance = new self;
+				self::$instance = new self($is_profile);
 			}
+						
 			return self::$instance;
 		}
 		
-		private function __construct(){		
+		private function __construct($is_profile){		
 			
 			$this->facebook = new Facebook(AppSecrets::appapikey, AppSecrets::appsecret);
+			
+			if( !$is_profile ){
+				$this->user_id = $this->facebook->require_login();
+			}
 		
-			$this->user_id = $this->facebook->require_login();
 			
 			$this->db = mysql_connect(AppSecrets::mysql_host, AppSecrets::mysql_user, 
 					AppSecrets::mysql_pass) or die("Database error");
@@ -95,8 +100,8 @@
 			return ! ( ! $this->result || mysql_num_rows( $this->result ) == 0 );
 		}
 		
-		public function getUserTimeline(){
-			$this->twitterInfo = $this->twitterObj->get_statusesUser_timeline();
+		public function getUserTimeline($params){
+			$this->twitterInfo = $this->twitterObj->get_statusesUser_timeline($params);
 			
 			return $this->twitterInfo->response;
 		}
